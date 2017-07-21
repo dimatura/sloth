@@ -411,7 +411,6 @@ class AnnotationScene(QGraphicsScene):
             self._message_text_item.paint(painter, QStyleOptionGraphicsItem(), None)
 
     #
-    #
     # utility functions
     #
 
