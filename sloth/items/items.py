@@ -769,6 +769,7 @@ class PolygonItem(BaseItem):
         self._polygon = None
 
         self._updatePolygon(self._dataToPolygon(self._model_item))
+
         LOG.debug("Constructed polygon %s for model item %s" %
                   (self._polygon, model_item))
 
@@ -830,3 +831,10 @@ class PolygonItem(BaseItem):
     def dataChange(self):
         polygon = self._dataToPolygon(self._model_item)
         self._updatePolygon(polygon)
+
+    def shape(self):
+        shape = QPainterPath()
+        for pt in self._polygon:
+            shape.lineTo(pt)
+        shape.lineTo(self._polygon[0])
+        return shape
